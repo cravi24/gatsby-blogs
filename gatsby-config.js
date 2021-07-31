@@ -1,17 +1,23 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "gatsby-blogs",
+    siteUrl: 'https://www.yourdomain.tld',
+    title: 'gatsby-blogs',
   },
   plugins: [
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: {
-        accessToken: "nXQF4QgYJPCGCd5E0ZV5v_Cee7del1G8EooP-k6arng",
-        spaceId: "",
+        accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
-    "gatsby-plugin-sass",
-    "gatsby-plugin-gatsby-cloud",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-gatsby-cloud',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
   ],
 };
